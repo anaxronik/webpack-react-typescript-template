@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 module.exports = {
+  mode: 'development',
   entry: './src/index.js',
   output: {
     filename: 'bundle.js',
@@ -33,4 +34,10 @@ module.exports = {
     }),
     new CleanWebpackPlugin(),
   ],
+  devServer: {
+    contentBase: path.join(__dirname, 'dist'),
+    compress: true,
+    port: 3000,
+    open: true,
+  },
 }
