@@ -9,6 +9,9 @@ module.exports = {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist'),
   },
+  resolve: {
+    extensions: ['.js', '.jsx', '.ts', '.tsx'],
+  },
   module: {
     rules: [
       {
@@ -20,7 +23,7 @@ module.exports = {
         type: 'asset/resource',
       },
       {
-        test: /\.jsx?$/,
+        test: [/\.jsx?$/, /\.tsx?$/],
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
